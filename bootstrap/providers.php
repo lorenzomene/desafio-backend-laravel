@@ -2,6 +2,6 @@
 
 return [
     App\Providers\AppServiceProvider::class,
-    App\Providers\TransactionRouteProvider::class,
-    App\Providers\TransactionServiceProvider::class,
+    App\Providers\Transaction\TransactionRouteProvider::class,
+    App\Providers\Transaction\TransactionServiceProvider::class,
 ];

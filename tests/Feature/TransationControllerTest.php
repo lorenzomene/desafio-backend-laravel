@@ -13,19 +13,19 @@ class TransationControllerTest extends TestCase
 
     public function test_post_payment(): void
     {
-        //Prepare
+        // Prepare
         $payer = Wallet::factory()->create();
         $payee = Wallet::factory()->create();
         $value = 100;
 
-        //Act
+        // Act
         $response = $this->postJson(route('transactions.create'), [
             'payer_id' => $payer->getKey(),
             'payee_id' => $payee->getKey(),
             'value' => $value,
         ]);
 
-        //Assert
+        // Assert
         $response->assertNoContent();
-    }
+    } 
 }

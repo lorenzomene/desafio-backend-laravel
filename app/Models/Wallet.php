@@ -23,4 +23,9 @@ class Wallet extends Model
     protected $casts = [
         'balance' => 'integer',
     ];
+
+    protected static function newFactory()
+    {
+        return \Database\Factories\Wallet\WalletFactory::new();
+    } 
 }
