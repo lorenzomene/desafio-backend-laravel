@@ -64,3 +64,35 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Database
+* customer
+	* id: int primary
+	* document_type: enum -> customer = pessoa fisica ou juridica
+	* document: string -> cpf/cnpj -> unique
+	* email: string -> unique
+	* name: string
+	* index (document_type, document)
+* shopkeeper
+	* id: int primary
+	* document: string -> cnpj -> shopkeeper = pessoa juridica -> unique
+	* email: string -> unique
+	* name: string
+* -> daria para fazer polimorfismo -> mesma table -> tipo field (ENUM)
+
+* account
+	* id: int primary
+	* user_id: int
+	* user_type: string
+	* balance: int -> usar os valores como centavos -> R$1.00 -> 100
+* transaction
+	* id: int primary
+	* value: int
+	* payer_id: int fk wallet
+	* payee_id: int fk wallet
+	* status: string -> sera uma enum no codigo
+
+## notas
+
+valores como int para evitar problemas de arredondamento
+
