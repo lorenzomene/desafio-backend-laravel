@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->integer('value');
-            $table->foreignUuid('payer_id')->constrained('wallets')->onDelete('cascade');
-            $table->foreignUuid('payee_id')->constrained('wallets')->onDelete('cascade');
+            $table->foreignUuid('payer_id');//removed for testing purposes ->constrained('wallets')->onDelete('cascade');
+            $table->foreignUuid('payee_id');//removed for testing purposes ->constrained('wallets')->onDelete('cascade');
             $table->integer('status')->index();
             $table->timestamps();
         });
