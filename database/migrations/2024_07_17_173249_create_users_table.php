@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->integer('document_type');
+            $table->string('document_type');
             $table->string('document_number');
-            $table->integer('user_type')->index();
+            $table->string('user_type')->index();
             $table->string('email')->unique();
             $table->string('name');
             $table->timestamps();

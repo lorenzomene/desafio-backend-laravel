@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('value');
             $table->foreignUuid('payer_id');//removed for testing purposes ->constrained('wallets')->onDelete('cascade');
             $table->foreignUuid('payee_id');//removed for testing purposes ->constrained('wallets')->onDelete('cascade');
-            $table->integer('status')->index();
+            $table->string('status')->index();
             $table->timestamps();
         });
     }
