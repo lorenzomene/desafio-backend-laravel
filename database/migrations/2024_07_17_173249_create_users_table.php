@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('document_type');
             $table->string('document_number');
-            $table->string('user_type')->index();
+            $table->integer('user_type')->index();
             $table->string('email')->unique();
             $table->string('name');
             $table->timestamps();
