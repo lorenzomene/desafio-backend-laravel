@@ -2,6 +2,7 @@
 
 namespace Database\Factories\Wallet;
 
+use App\Models\User;
 use App\Models\Wallet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,9 +20,12 @@ class WalletFactory extends Factory
      */
     public function definition(): array
     {
+
+        $user = User::factory()->create();
+
         return [
             'id' => $this->faker->uuid(),
-            'user_id' => $this->faker->uuid(),
+            'user_id' => $user->getKey(),
             'balance' => $this->faker->randomNumber(5),
         ];
     }
