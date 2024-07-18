@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum Status: int {
+enum StatusEnum: int {
     
     case Pending = 1;
     case Error = 2;

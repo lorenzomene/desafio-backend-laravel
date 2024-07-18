@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum UserType: int {
+enum UserTypeEnum: int {
     
     case Customer = 1;
     case Shopkeeper = 2;

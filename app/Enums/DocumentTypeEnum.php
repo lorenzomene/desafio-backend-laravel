@@ -2,12 +2,12 @@
 
 namespace App\Enums;
 
-enum DocumentType: int {
+enum DocumentTypeEnum: int {
     
     case CPF = 1;
     case CNPJ = 2;
 
-    public static function toString(int $value): ?string
+    public static function toString(int $value): string
     {
         return match($value) {
             self::CPF->value => 'CPF',
@@ -16,7 +16,7 @@ enum DocumentType: int {
         };
     }
 
-    public static function toInt(string $name): ?int
+    public static function toInt(string $name): int
     {
         return match($name) {
             'CPF' => self::CPF->value,
