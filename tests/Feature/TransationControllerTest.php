@@ -2,7 +2,10 @@
 
 namespace Tests\Feature;
 
+use App\Enums\DocumentTypeEnum;
 use App\Enums\StatusEnum;
+use App\Enums\UserTypeEnum;
+use App\Models\User;
 use App\Models\Wallet;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -15,10 +18,22 @@ class TransationControllerTest extends TestCase
     public function test_post_payment(): void
     {
         // Prepare
+        $customer = User::factory()->create([
+            'user_type' => UserTypeEnum::Customer,
+            'document_type' => DocumentTypeEnum::CPF,
+        ]);
+        
+        $shopkeeper = User::factory()->create([
+            'user_type' => UserTypeEnum::Shopkeeper,
+            'document_type' => DocumentTypeEnum::CNPJ,
+        ]);
+
         $payer = Wallet::factory()->create([
+            'user_id' => $customer->getKey(),
             'balance' => 10_00
         ]);
         $payee = Wallet::factory()->create([
+            'user_id' => $shopkeeper->getKey(),
             'balance' => 0
         ]);
         $value = 5_00;

@@ -18,4 +18,11 @@ class TransactionRepository
             'status' => StatusEnum::Created,
         ]);
     }    
+
+    public function updateTransactionStatus(string $transactionId, StatusEnum $status)
+    {
+        return Transaction::find($transactionId)->update([
+            'status' => $status,
+        ]);
+    }
 }
