@@ -37,7 +37,7 @@ class TransationControllerTest extends TestCase
         $this->assertDatabaseHas('transactions', [
             'payer_id' => $payer->getKey(), 
             'payee_id' => $payee->getKey(), 
-            'amount' => 1000, 
+            'value' => 5_00, 
             'status' => StatusEnum::Completed,
         ]);
 
