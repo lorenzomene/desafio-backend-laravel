@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'id' => $this->faker->uuid(),
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'document_type' => DocumentTypeEnum::toString($userType->value),
+            'document_type' => DocumentTypeEnum::getByUserType($userType->value),
             'document_number' => $this->faker->randomNumber(5),
             'user_type' => $userType->value,
         ];

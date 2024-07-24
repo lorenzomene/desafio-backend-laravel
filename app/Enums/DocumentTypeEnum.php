@@ -2,26 +2,16 @@
 
 namespace App\Enums;
 
-enum DocumentTypeEnum: int {
+enum DocumentTypeEnum: string {
     
-    case CPF = 1;
-    case CNPJ = 2;
+    case CPF = 'cpf';
+    case CNPJ = 'cnpj';
 
-    public static function toString(int $value): string
+    public static function getByUserType(string $value): string
     {
         return match($value) {
-            self::CPF->value => 'CPF',
-            self::CNPJ->value => 'CNPJ',
-            default => 'CPF',
-        };
-    }
-
-    public static function toInt(string $name): int
-    {
-        return match($name) {
-            'CPF' => self::CPF->value,
-            'CNPJ' => self::CNPJ->value,
-            default => self::CPF->value,
+            UserTypeEnum::Customer->value => self::CPF->value,
+            UserTypeEnum::Shopkeeper->value => self::CNPJ->value
         };
     }
 }

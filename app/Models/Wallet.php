@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\UserTypeEnum;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -33,5 +34,15 @@ class Wallet extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function hasBalanceToMakeTransaction(int $amount): bool
+    {
+        return $this->attributes['balance'] < $amount;
+    }
+
+    public function isCustomer()
+    {
+        return $this->user->user_type == UserTypeEnum::Customer->value;
     }
 }
