@@ -15,4 +15,9 @@ class TransactionException extends Exception
     {
         return new self('Shopkeepers are not allowed to pay.');
     }
+
+    public static function unauthorizedByGateway(string $gatewayName): self
+    {
+        return new self(sprintf('Payment unauthorized by %s.', $gatewayName));
+    }
 }

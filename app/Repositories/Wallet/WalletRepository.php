@@ -7,18 +7,18 @@ use App\Models\Wallet;
 class WalletRepository 
 {
 
-    public function findByIdWithUser(string $walletId): Wallet
+    public function findById(string $walletId): Wallet
     {
-        return Wallet::with('user')->find($walletId);
+        return Wallet::find($walletId);
     }
 
-    public function deposit(string $walletId, int $amount) 
+    public function deposit(string $walletId, int $amount): bool
     {
-        Wallet::where('id', '=', $walletId)->increment('balance', $amount);
+        return Wallet::where('id', '=', $walletId)->increment('balance', $amount);
     }
 
-    public function withdrawal(string $walletId, int $amount) 
+    public function withdrawal(string $walletId, int $amount): bool
     {
-        Wallet::where('id', '=', $walletId)->decrement('balance', $amount);
+        return Wallet::where('id', '=', $walletId)->decrement('balance', $amount);
     }
 }
