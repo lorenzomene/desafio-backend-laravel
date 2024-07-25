@@ -3,12 +3,12 @@
 ## Database
 * Users
 	* id: uuid primary
+	* user_type: string -> customer ou shopkeeper -> enum
 	* document_type: string -> enum no codigo
 	* document: string -> cpf/cnpj -> unique com document type
 	* email: string -> unique
 	* name: string
 	* index (document_type, document) -> facilitar buscar
-* -> podem ser customer ou shopkeeper
 
 * Wallets
 	* id: uuid primary
