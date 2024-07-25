@@ -41,7 +41,7 @@ class Wallet extends Model
         return $this->attributes['balance'] < $amount;
     }
 
-    public function isCustomer()
+    public function isCustomer(): bool
     {
         return $this->user->user_type == UserTypeEnum::Customer->value;
     }

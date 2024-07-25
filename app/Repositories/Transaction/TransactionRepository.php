@@ -25,4 +25,5 @@ class TransactionRepository
             'status' => $status,
         ]);
     }
+
 }
