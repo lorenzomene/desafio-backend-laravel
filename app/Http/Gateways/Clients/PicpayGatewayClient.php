@@ -15,7 +15,6 @@ class PicpayGatewayClient implements PaymentGatewayInterface
     public function authorize(): bool
     {
         $request = Http::get('https://util.devi.tools/api/v2/authorize')->json();
-        dd($request);
         return $request['status'] == 'success' && $request["data"]["authorization"] == true;
     }
 }
