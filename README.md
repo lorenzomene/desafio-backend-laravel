@@ -3,17 +3,16 @@
 ## Database
 * Users
 	* id: uuid primary
-	* document_type: int -> enum no codigo -> user = pessoa fisica ou juridica
+	* document_type: string -> enum no codigo
 	* document: string -> cpf/cnpj -> unique com document type
 	* email: string -> unique
 	* name: string
 	* index (document_type, document) -> facilitar buscar
-* shopkeeper
-* ->  fazer polimorfismo -> mesma table -> tipo field -> User table
+* -> podem ser customer ou shopkeeper
 
 * Wallets
 	* id: uuid primary
-	* user_id: uuid
+	* user_id: uuid fk user
 	* balance: int -> usar os valores como centavos -> R$1.00 -> 100
 
 * Transactions
